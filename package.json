@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react": "^18.0.24",
     "cookie-cutter": "^0.2.0",
     "cytoscape": "^3.23.0",
     "cytoscape-dagre": "^2.4.0",
