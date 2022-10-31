@@ -185,11 +185,6 @@ const GraphCalculation = () => {
     elementsJSON.nodes.push(targetNode);
   };
 
-  const noMatchingHeapChunk = () => {
-    alert('The HeapChunks you have entered does not correspond to the given pattern.')
-  }
-
-
   //pull out entered name of heap chunk by the user to later determine label in graph and call create-Function to satisfy the different types of heap chunks
   const checkTypeOfHeapChunk = (value) => {
     if (value.textInput.startsWith("malloc_block_stack")) {
@@ -203,7 +198,7 @@ const GraphCalculation = () => {
     } else if (value.textInput.startsWith("node_value")) {
       const matches = value.textInput
         .match(/\(([^)]+)\)/)[1]
-        .split(", ");
+        .split(",");
       console.log(matches[0]);
       const nodename = matches[0];
       const valuename = matches[1];
@@ -212,7 +207,7 @@ const GraphCalculation = () => {
     } else if (value.textInput.startsWith("node_next")) {
       const matches = value.textInput
         .match(/\(([^)]+)\)/)[1]
-        .split(", ");
+        .split(",");
       const source = matches[0];
       const target = matches[1];
       const color = value.radioButtonColor;
@@ -220,14 +215,12 @@ const GraphCalculation = () => {
     } else if (value.textInput.startsWith("stack_head")) {
       const matches = value.textInput
         .match(/\(([^)]+)\)/)[1]
-        .split(", ");
+        .split(",");
       const source = matches[0];
       const target = matches[1];
       const color = value.radioButtonColor;
       createStackHeadEdge(source, target, color);
-    } else {
-      noMatchingHeapChunk();
-    }
+    } 
   };
 
 
