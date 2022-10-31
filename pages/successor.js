@@ -1,7 +1,7 @@
 import React from 'react'
-import Zahlenstrahl from '../Components/Numberline/zahlenstrahl.tsx'
-import dataHandler from '../Components/Numberline/dataHandler'
-import CookiePrinter from '../Components/Numberline/cookiePrinter'
+import Zahlenstrahl from '../Components/NumberLine/zahlenstrahl'
+import dataHandler from '../Components/NumberLine/dataHandler'
+import CookiePrinter from '../Components/NumberLine/cookiePrinter'
 
 const Zahlenstrahl_1_name = "1";
 const Zahlenstrahl_2_name = "2";
