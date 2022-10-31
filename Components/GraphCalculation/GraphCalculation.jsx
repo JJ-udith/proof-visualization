@@ -147,6 +147,7 @@ const GraphCalculation = () => {
   };
 
   const createStackHeadEdge = (source, target, color) => {
+    //datapoints for the ellipse where the head pointer starts
     const sourceHeadEllipse = dataFactoryNodes();
     sourceHeadEllipse.data.id = `${source}:head_ellipse`;
     sourceHeadEllipse.data.name = "head";
@@ -154,6 +155,7 @@ const GraphCalculation = () => {
     sourceHeadEllipse.data.bordercolor = color;
     sourceHeadEllipse.data.parent = `s:stack`;
 
+    //datapoints for the source node of head pointer
     const sourceNode = dataFactoryNodes();
     sourceNode.data.id = `${source}:stack`;
     sourceNode.data.name = `${source}:stack`;
@@ -161,12 +163,14 @@ const GraphCalculation = () => {
     sourceNode.data.bordercolor = color;
     sourceNode.data.parent = `${source}:malSt`
 
+    //datapoints for the target node where head pointer points to
     const targetNode = dataFactoryNodes();
     targetNode.data.id = `${target}:node`;
     targetNode.data.name = `${target}:node`;
     targetNode.data.shape = "rectangle";
     targetNode.data.bordercolor = color;
 
+    //datapoints for the head pointer edge 
     const headPointer = dataFactoryEdges();
     headPointer.data.id = `${source}_head:pointer`;
     headPointer.data.name = "head";
@@ -174,14 +178,17 @@ const GraphCalculation = () => {
     headPointer.data.target = `${target}:node`;
     headPointer.data.color = color;
 
-
-
     //push resulting datapoints in elements array in property nodes
     elementsJSON.nodes.push(sourceHeadEllipse);
     elementsJSON.nodes.push(sourceNode);
     elementsJSON.edges.push(headPointer);
     elementsJSON.nodes.push(targetNode);
   };
+
+  const noMatchingHeapChunk = () => {
+    alert('The HeapChunks you have entered does not correspond to the given pattern.')
+  }
+
 
   //pull out entered name of heap chunk by the user to later determine label in graph and call create-Function to satisfy the different types of heap chunks
   const checkTypeOfHeapChunk = (value) => {
@@ -219,7 +226,7 @@ const GraphCalculation = () => {
       const color = value.radioButtonColor;
       createStackHeadEdge(source, target, color);
     } else {
-        //noMatchingHeapChunk();
+      noMatchingHeapChunk();
     }
   };
 
@@ -227,6 +234,7 @@ const GraphCalculation = () => {
 
   const fillElementsArray = () => {
     values.map((value) => checkTypeOfHeapChunk(value));
+    
 
     //flaten the array and push nodes and edges in elementsFlat
     elementsJSON.nodes.forEach((x) => elementsFlat.push(x));
