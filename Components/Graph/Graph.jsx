@@ -3,6 +3,7 @@ import CytoscapeComponent from "react-cytoscapejs";
 import { DataContext } from "../../pages";
 import cytoscape from "cytoscape";
 import dagre from "cytoscape-dagre";
+import styles from './graph.module.scss'
 
 cytoscape.use(dagre);
 
@@ -42,13 +43,16 @@ const Graph = ({ elements }) => {
   const layout = { name: "dagre" };
 
   return (
-    <div>
+    <div className={styles.graphContainer}>
+      <div className={styles.cytoScapeFrame}>
       <CytoscapeComponent
         elements={elements}
         stylesheet={style}
         style={{ width: "600px", height: "600px" }}
         layout={layout}
       />
+      </div>
+      
     </div>
   );
 };

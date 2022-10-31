@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from "../../pages/graph";
 import Output from "../Output/Output";
-
+import styles from "./input.module.scss";
 const Input = () => {
   const [values, setValues] = useContext(DataContext);
-  let [textInput, setTextInput] = useState("Heap Chunks");
-  let [colorInput, setColorInput] = useState("black");
+  let [textInput, setTextInput] = useState("");
+  let [colorInput, setColorInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 
@@ -23,10 +23,7 @@ const Input = () => {
   const handleSubmit = (event) => {
     event.preventDefault(); //will stop the refreshing of the page
     //adding up the new values to values State in ReactContext
-    setValues((values) => [
-      ...values,
-      { textInput: textInput, radioButtonColor: colorInput },
-    ]);
+    setValues((values) => [...values, { textInput: textInput, radioButtonColor: colorInput }]);
 
     //wenn Text input und Farbwahl getroffen, setze state auf valid und submitted
     if (textInput && colorInput) {
@@ -37,49 +34,64 @@ const Input = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
+          className={styles.textInput}
           id="heap-chunk"
           type="text"
-          placeholder="Heap Chunk"
+          placeholder="Please enter a Heap Chunk"
           name="heapChunkRow"
           value={textInput}
           onChange={handleTextInputChange}
         />
-        {submitted && !values.textInput && (
-          <span id="heap-chunk-error">Please enter a Heap Chunk</span>
-        )}
-        <label htmlFor="radioButtonBlack">black</label>
-        <input
-          id="black"
-          type="radio"
-          name="radiocolor"
-          value="black"
-          onChange={handleRadioButtonChange}
-        />
-        <label htmlFor="radioButtonGreen">green</label>
-        <input
-          id="green"
-          type="radio"
-          name="radiocolor"
-          value="green"
-          onChange={handleRadioButtonChange}
-        />
-        <label htmlFor="radioButtonRed">red</label>
-        <input
-          id="red"
-          type="radio"
-          name="radiocolor"
-          value="red"
-          onChange={handleRadioButtonChange}
-        />
 
-        <button type="submit">submit row</button>
+        <div className={styles.radioButtons}>
+
+          <input
+            className={styles.accentBlack}
+            id="black"
+            type="radio"
+            name="radiocolor"
+            value="black"
+            onChange={handleRadioButtonChange}
+          />
+          <label className={styles.radioLabel} htmlFor="radioButtonBlack">
+            black
+          </label>
+
+          <input
+            className={styles.accentGreen}
+            id="green"
+            type="radio"
+            name="radiocolor"
+            value="green"
+            onChange={handleRadioButtonChange}
+          />
+          <label className={styles.radioLabel} htmlFor="radioButtonGreen">
+            green
+          </label>
+
+          <input
+            className={styles.accentRed}
+            id="red"
+            type="radio"
+            name="radiocolor"
+            value="red"
+            onChange={handleRadioButtonChange}
+          />
+          <label className={styles.radioLabel} htmlFor="radioButtonRed">
+            red
+          </label>
+        </div>
+
+        <button className={styles.rowButton} type="submit">
+          SUBMIT ROW +{" "}
+        </button>
+        
       </form>
-      {submitted && !colorInput && <div>Please chose a color!</div>}
-      {valid && submitted && (
-        <div>Success! Thank you for registering</div>
-      )}
+
+      {submitted && !colorInput && <div>Please chose a color.</div>}
+      {submitted && !textInput && <div id="heap-chunk-error">Please enter a Heap Chunk.</div>}
 
       <Output />
     </div>

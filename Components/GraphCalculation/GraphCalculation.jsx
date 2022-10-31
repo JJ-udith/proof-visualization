@@ -20,6 +20,7 @@ const GraphCalculation = () => {
   //state to update Cytoscape Component by Click on Button
   const [graphData, setGraphData] = useState([]);
 
+  //setGraphData called with different Array triggers rerender of CytoscapeComponent
   const handleClick = () => {
     setGraphData([...fillElementsArray()]);
   };
@@ -206,9 +207,9 @@ const GraphCalculation = () => {
     } else {
         //noMatchingHeapChunk();
     }
-
-    //else if textinput starts with stack_head
   };
+
+
 
   const fillElementsArray = () => {
     values.map((value) => checkTypeOfHeapChunk(value));
@@ -222,8 +223,8 @@ const GraphCalculation = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleClick}>Draw state</button>
+    <div className={styles.container}>
+      <button className={styles.drawState} onClick={handleClick}>Draw state</button>
       <Graph elements={graphData} />
     </div>
   );

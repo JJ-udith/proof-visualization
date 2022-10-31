@@ -5,9 +5,9 @@ import { DataContext } from "../../pages/graph";
 const Output = () => {
     const  [values] = useContext(DataContext);
   return (
-    <div>
+    <div className={styles.fitTheGrid}>
         {values.slice(1).map(value => (
-        <div className={styles.textoutput}key={value.textInput} style={{padding:'10px'}}>
+        <div className={styles.textOutput} key={value.textInput} style={{padding:'10px'}}>
           <span style={{ color: 'white', fontStyle: 'italic' }}>
             {value.textInput}
           </span>{' -> '}
