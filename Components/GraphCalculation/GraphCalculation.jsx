@@ -55,18 +55,18 @@ const GraphCalculation = () => {
   const createMallocBlockStackGraphData = (name, color) => {
     //datapoints for outer rectangle
     const mallocstack = dataFactoryNodes();
-    mallocstack.data.id = `${name}`;
+    mallocstack.data.id = `${name}:malSt`;
     mallocstack.data.name = `malloc_block_stack(${name})`;
     mallocstack.data.shape = "rectangle";
     mallocstack.data.bordercolor = color;
 
     //datapoints for inner rectangle
     const stack = dataFactoryNodes();
-    stack.data.id = `${name}2`;
+    stack.data.id = `${name}:stack`;
     stack.data.name = `${name}:stack`;
     stack.data.shape = "rectangle";
     stack.data.bordercolor = color;
-    stack.data.parent = `${name}`;
+    stack.data.parent = `${name}:malSt`;
 
     //push resulting datapoints in elements array in property nodes
     elementsJSON.nodes.push(mallocstack);
@@ -77,18 +77,18 @@ const GraphCalculation = () => {
   const createMallocBlockNodeGraphData = (name, color) => {
     //datapoints for outer rectangle
     const mallocNode = dataFactoryNodes();
-    mallocNode.data.id = `${name}`;
+    mallocNode.data.id = `${name}:malNo`;
     mallocNode.data.name = `malloc_block_node(${name})`;
     mallocNode.data.shape = "rectangle";
     mallocNode.data.bordercolor = color;
 
     //datapoints for inner rectangle
     const mNode = dataFactoryNodes();
-    mNode.data.id = `${name}2`;
+    mNode.data.id = `${name}:node`;
     mNode.data.name = `${name}:node`;
     mNode.data.shape = "rectangle";
     mNode.data.bordercolor = color;
-    mNode.data.parent = `${name}`;
+    mNode.data.parent = `${name}:malNo`;
 
     //push resulting datapoints in elements array in property nodes
     elementsJSON.nodes.push(mallocNode);
@@ -98,18 +98,18 @@ const GraphCalculation = () => {
   const createNodeValue = (nodename, valuename, color) => {
     //datapoints for outer rectangle
     const node = dataFactoryNodes();
-    node.data.id = `${nodename}3`;
+    node.data.id = `${nodename}:node`;
     node.data.name = `${nodename}:node`;
     node.data.shape = "rectangle";
     node.data.bordercolor = color;
 
     //datapoints for inner rectangle
     const nodevalue = dataFactoryNodes();
-    nodevalue.data.id = `${nodename}4`;
+    nodevalue.data.id = `${nodename}:val`;
     nodevalue.data.name = `${valuename}:value`;
     nodevalue.data.shape = "rectangle";
     nodevalue.data.bordercolor = color;
-    nodevalue.data.parent = `${nodename}3`;
+    nodevalue.data.parent = `${nodename}:node`;
 
     //push resulting datapoints in elements array in property nodes
     elementsJSON.nodes.push(node);
@@ -117,24 +117,27 @@ const GraphCalculation = () => {
   };
 
   const createNodeNextEdge = (source, target, color) => {
+    //datapoints for source ellipse for next pointer
     const sourceNodeNextPointer = dataFactoryNodes();
-    sourceNodeNextPointer.data.id = `${source}_next`;
+    sourceNodeNextPointer.data.id = `${source}:next`;
     sourceNodeNextPointer.data.name = "next";
     sourceNodeNextPointer.data.shape = "ellipse";
     sourceNodeNextPointer.data.bordercolor = color;
-    sourceNodeNextPointer.data.parent = `${source}`;
+    sourceNodeNextPointer.data.parent = `${source}:node`;
 
+    //datapoints for target node
     const targetNode = dataFactoryNodes();
-    targetNode.data.id = `${target}`;
+    targetNode.data.id = `${target}:node`;
     targetNode.data.name = `${target}`;
     targetNode.data.shape = "rectangle";
     targetNode.data.bordercolor = color;
 
+    //datapoints for the next pointer from source to target
     const nextEdge = dataFactoryEdges();
     nextEdge.data.id = `${source}:${target}`;
     nextEdge.data.name = "next";
-    nextEdge.data.source = `${source}_next`;
-    nextEdge.data.target = `${target}`;
+    nextEdge.data.source = `${source}:next`;
+    nextEdge.data.target = `${target}:node`;
     nextEdge.data.color = color;
 
     //push resulting datapoints in elements array in property nodes
@@ -144,12 +147,19 @@ const GraphCalculation = () => {
   };
 
   const createStackHeadEdge = (source, target, color) => {
-    const sourceNodeHeadPointer = dataFactoryNodes();
-    sourceNodeHeadPointer.data.id = `${source}:head_ellipse`;
-    sourceNodeHeadPointer.data.name = "head";
-    sourceNodeHeadPointer.data.shape = "ellipse";
-    sourceNodeHeadPointer.data.bordercolor = color;
-    sourceNodeHeadPointer.data.parent = `s:stack`;
+    const sourceHeadEllipse = dataFactoryNodes();
+    sourceHeadEllipse.data.id = `${source}:head_ellipse`;
+    sourceHeadEllipse.data.name = "head";
+    sourceHeadEllipse.data.shape = "ellipse";
+    sourceHeadEllipse.data.bordercolor = color;
+    sourceHeadEllipse.data.parent = `s:stack`;
+
+    const sourceNode = dataFactoryNodes();
+    sourceNode.data.id = `${source}:stack`;
+    sourceNode.data.name = `${source}:stack`;
+    sourceNode.data.shape = 'rectangle';
+    sourceNode.data.bordercolor = color;
+    sourceNode.data.parent = `${source}:malSt`
 
     const targetNode = dataFactoryNodes();
     targetNode.data.id = `${target}:node`;
@@ -162,9 +172,13 @@ const GraphCalculation = () => {
     headPointer.data.name = "head";
     headPointer.data.source = `${source}:head_ellipse`;
     headPointer.data.target = `${target}:node`;
+    headPointer.data.color = color;
+
+
 
     //push resulting datapoints in elements array in property nodes
-    elementsJSON.nodes.push(sourceNodeHeadPointer);
+    elementsJSON.nodes.push(sourceHeadEllipse);
+    elementsJSON.nodes.push(sourceNode);
     elementsJSON.edges.push(headPointer);
     elementsJSON.nodes.push(targetNode);
   };
