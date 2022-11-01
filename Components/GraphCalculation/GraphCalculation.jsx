@@ -1,6 +1,6 @@
 import styles from "./graphCalculation.module.scss";
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../pages/graph";
+import { DataContext } from "../../pages/stack";
 import Graph from "../Graph/Graph";
 
 const GraphCalculation = () => {

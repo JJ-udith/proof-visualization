@@ -15,7 +15,7 @@ const Graph = () => {
 
   return (
     <div>
-        <h1>Graph Example</h1>
+        <h1>Stack Algorithm Visualization</h1>
       {/* Provider wraps the components that are to be supplied with the data object */}
       <DataContext.Provider value={[values, setValues]}>
         <Input />

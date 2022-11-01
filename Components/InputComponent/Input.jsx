@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { DataContext } from "../../pages/graph";
+import { DataContext } from "../../pages/stack";
 import Output from "../Output/Output";
 import styles from "./input.module.scss";
 const Input = () => {

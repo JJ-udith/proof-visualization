@@ -18,10 +18,10 @@
     transition: all 0.3s ease;
   }
   .textInput:hover{
-    border: 3px solid #bc96cb;
+    border: 3px solid #0c639c;
   }
   .textInput:focus{
-    border: 3px solid #9b59b6;
+    border: 3px solid #0c639c;
   }
 
 .radioButtons { 
@@ -67,10 +67,12 @@
             letter-spacing: 1px;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            background: #063350;
+            // background: linear-gradient(135deg, #71b7e6, #9b59b6);
           }
           .rowButton:hover{
-           background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+            background: #0c639c;
+          //  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
            }
 
            .rowButton:active {

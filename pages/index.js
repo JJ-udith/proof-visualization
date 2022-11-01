@@ -21,8 +21,8 @@ export default function Home({}) {
         <Link href="/successor">
           <a>Successor</a>
         </Link>
-        <Link href="/graph">
-          <a>Graph</a>
+        <Link href="/stack">
+          <a>Stack</a>
         </Link>
       </main>
 

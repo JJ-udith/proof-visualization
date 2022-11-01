@@ -18,13 +18,15 @@
         letter-spacing: 1px;
         cursor: pointer;
         transition: all 0.3s ease;
-        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        background: #063350;
+        // background: linear-gradient(135deg, #71b7e6, #9b59b6);
         
       }
      
       .drawState:hover{
-      transform: scale(0.99); 
-       background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+        transform: scale(0.99); 
+        background: #0c639c;
+      //  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
        }
     
        .drawState:active {
