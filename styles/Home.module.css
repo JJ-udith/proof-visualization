@@ -12,16 +12,62 @@
 
 .container{
   max-width: 700px;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: black;
   padding: 25px 30px 30px 30px;
   border-radius: 5px 5px 0 0;
   box-shadow: 0 5px 0 rgba(0,0,0,0.15);
   }
 
+.titleContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #373C59;
+  height: 10vh;
+  margin-bottom: 50px;
+}
 
+.title{
+  font-size: xx-large;
+  font-weight: 600;
+}
 
+.linkContainer{
+  width: 100%;
+  /* background-color: red; */
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  height: 30%;
+}
+.successorContainer{
+  background-color:#535773;
+  font-size: x-large;
+  padding: 15px;
+  width: 40%;
+  height: 100%;
+  text-align: center;
+}
 
+.stackContainer{
+  background-color:#535773;
+  font-size: x-large;
+  padding: 15px;
+  width: 40%;
+  height: 100%;
+  text-align: center;
+}
 
+.stackContainer:hover{
+  background-color:#7F839C;
+}
 
-
+.successorContainer:hover{
+  background-color: #7F839C;
+}
