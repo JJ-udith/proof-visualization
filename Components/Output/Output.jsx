@@ -6,17 +6,20 @@ const Output = () => {
     const  [values] = useContext(DataContext);
   return (
     <div className={styles.fitTheGrid}>
+      <div className={styles.textOutputWrapper}>
         {values.slice(1).map(value => (
         <div className={styles.textOutput} key={value.textInput} style={{padding:'10px'}}>
-          <span style={{ color: 'white', fontStyle: 'italic' }}>
+          <span >
             {value.textInput}
           </span>{' -> '}
-          <span style={{ color: 'white', fontStyle: 'italic' }}>
+          <span >
             {value.radioButtonColor}
           </span>
         </div>
       ))}
     </div>
+    </div>
+    
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from "../../pages/stack";
-import Output from "../Output/Output";
+
 import styles from "./input.module.scss";
 const Input = () => {
   const [values, setValues] = useContext(DataContext);
@@ -33,7 +33,7 @@ const Input = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           className={styles.textInput}
@@ -93,7 +93,7 @@ const Input = () => {
       {submitted && !colorInput && <div>Please chose a color.</div>}
       {submitted && !textInput && <div id="heap-chunk-error">Please enter a Heap Chunk.</div>}
 
-      <Output />
+      {/* <Output /> */}
     </div>
   );
 };

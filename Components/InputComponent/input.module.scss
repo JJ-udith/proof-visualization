@@ -1,81 +1,82 @@
+.container {
+  padding: 10px;
+  background-color: #373c59;
+  color: white;
+}
+
 .form {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .textInput {
-    grid-area: 1 / 1 / 2 / 4; 
-    height: 45px;
-    outline: none;
-    font-size: 16px;
-    border-radius: 10px;
-    padding-left: 15px;
-    border: 1px solid grey;
-    //border-bottom-width: 2px;
-    transition: all 0.3s ease;
-  }
-  .textInput:hover{
-    border: 3px solid #0c639c;
-  }
-  .textInput:focus{
-    border: 3px solid #0c639c;
-  }
+  grid-area: 1 / 1 / 2 / 4;
+  height: 45px;
+  outline: none;
+  font-size: 16px;
+  padding-left: 15px;
+  border: 1px solid grey;
+  transition: all 0.3s ease;
+}
+.textInput:hover {
+  border: 3px solid #0c639c;
+}
+.textInput:focus {
+  border: 3px solid #0c639c;
+}
 
-.radioButtons { 
-    grid-area: 1 / 4/ 2 / 7;
-    font-size: 15px;
-    font-weight: 500;
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
+.radioButtons {
+  grid-area: 1 / 4/ 2 / 7;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .accentBlack {
-    accent-color: black; 
-    height: 17px;
-    width: 17px;
+  accent-color: black;
+  height: 17px;
+  width: 17px;
 }
 
 .accentGreen {
-    accent-color: rgb(125, 180, 88);
-    height: 17px;
-    width: 17px;
+  accent-color: rgb(125, 180, 88);
+  height: 17px;
+  width: 17px;
 }
 
 .accentRed {
-    accent-color: rgb(218, 95, 95);
-    height: 17px;
-    width: 17px;
+  accent-color: rgb(218, 95, 95);
+  height: 17px;
+  width: 17px;
 }
 
 .radioLabel {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
-.rowButton{
-    grid-area: 1 / 7 / 2 / 9; 
-            height: 100%;
-            width: 100%;
-            border-radius: 5px;
-            border: none;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #063350;
-            // background: linear-gradient(135deg, #71b7e6, #9b59b6);
-          }
-          .rowButton:hover{
-            background: #0c639c;
-          //  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
-           }
+.rowButton {
+  grid-area: 1 / 7 / 2 / 9;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #b7d77c;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #373c59;
+}
+.rowButton:hover {
+  background: #535773;
+}
 
-           .rowButton:active {
-            transform: scale(0.95); 
-           }
-      
+.rowButton:active {
+  transform: scale(0.95);
+}

@@ -1,13 +1,16 @@
 .graphContainer {
-    max-width: 700px;
-    width: 100%;
-    background-color: #fff;
-    padding: 15px 30px 30px 30px;
-    border-radius:  0 0 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80vw;
+  width: 100%;
+  padding: 15px 30px 30px 30px;
+  border-radius: 0 0 5px 5px;
 }
 
-.cytoScapeFrame{
-    max-width: 700px;
-    height: 350px;
-    border: 1px solid black;
+.cytoScapeFrame {
+  max-width: 600px;
+  height: 600px;
+  border: 1px solid black;
 }

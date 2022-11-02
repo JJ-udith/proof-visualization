@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react";
 import Input from "../Components/InputComponent/Input";
 import GraphCalculation from "../Components/GraphCalculation/GraphCalculation";
+import styles from "../styles/Home.module.css";
+import Output from "../Components/Output/Output";
 
 export const DataContext = createContext();
 
@@ -14,14 +16,18 @@ const Graph = () => {
   ]);
 
   return (
-    <div>
+    <div className={styles.main}>
+      <div className={styles.container}>
         <h1>Stack Algorithm Visualization</h1>
       {/* Provider wraps the components that are to be supplied with the data object */}
       <DataContext.Provider value={[values, setValues]}>
         <Input />
+        <Output />
         <GraphCalculation />
       </DataContext.Provider>
     </div>
+    </div>
+    
   );
 };
 
