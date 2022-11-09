@@ -1,4 +1,5 @@
 # Proof-Visualization
+
 ## Introduction
 
 This project was developed as part of my bachelor thesis. The goal of the project was to find out if and how visualizations can effectively support the proof of algorithms. Therefore a support system should be designed. The Proof-Visualization App is the prototype of this support system. It consists of two different visualizations: successor and stack.
@@ -28,20 +29,12 @@ or got to www.deployedAdressOfProject.com
 
 To reproduce the proof and apply the visualization, proceed as follows:
 Go to [Verifast](https://github.com/verifast/verifast), download and install Verifast according to your operation system.
-Open the successor.c file from [here](./algorithms/successor.c) in Verifast.
+Open the successor.c file from [here](./algorithms/successor.c) in Verifast and start the verification.
 On the Successor page it is now possible to display the assumptions collected in Verifast on a number line.  
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Stack Algorithm Visualization  
+  
+To reproduce the proof and apply the visualization, proceed as follows:
+Go to [Verifast](https://github.com/verifast/verifast), download and install Verifast according to your operation system.
+Open the stack.s file from [here](./algorithms/stack.c) in Verifast and start the verification.
+As you step through the the verification in the Steps Part of the window, you can see the Heap Chunks changing in the Heap Chunks part of the Window. You can then transfer the Heap Chunks into the tool you find on the Stack page of the App, to visualize the different Pre- and Postconditions as well as the State of Heap Chunks inbetween.
