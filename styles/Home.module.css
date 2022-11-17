@@ -7,10 +7,10 @@
   justify-content: center;
   align-items: center;
   background: white;
-  color:white
+  color: white
 }
 
-.container{
+.container {
   max-width: 700px;
   width: 100vw;
   height: auto;
@@ -18,10 +18,10 @@
   background-color: black;
   padding: 25px 30px 30px 30px;
   border-radius: 5px 5px 0 0;
-  box-shadow: 0 5px 0 rgba(0,0,0,0.15);
-  }
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
+}
 
-.titleContainer{
+.titleContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,43 +32,61 @@
   margin-bottom: 50px;
 }
 
-.title{
+.title {
   font-size: xx-large;
   font-weight: 600;
 }
 
-.linkContainer{
+.linkContainer {
   width: 100%;
   /* background-color: red; */
-  height: auto;
+  height: 20vh;
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
-  height: 30%;
+  /* height: 30vh; */
 }
-.successorContainer{
-  background-color:#535773;
+
+
+
+.successorContainer {
+  background-color: #535773;
   font-size: x-large;
   padding: 15px;
-  width: 40%;
+  width: 45%;
   height: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.stackContainer{
-  background-color:#535773;
-  font-size: x-large;
-  padding: 15px;
-  width: 40%;
-  height: 100%;
-  text-align: center;
-}
 
-.stackContainer:hover{
-  background-color:#7F839C;
-}
-
-.successorContainer:hover{
+.successorContainer:hover {
   background-color: #7F839C;
+}
+
+
+
+
+.stackContainer {
+  background-color: #535773;
+  font-size: x-large;
+  padding: 15px;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+.stackContainer:hover {
+  background-color: #7F839C;
+}
+
+.descriptionContainer {
+  padding-bottom: 20px;
 }

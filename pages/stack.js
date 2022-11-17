@@ -19,13 +19,14 @@ const Graph = () => {
     <div className={styles.main}>
       <div className={styles.container}>
         <h1>Stack Algorithm Visualization</h1>
-        <span>
+        <div className={styles.descriptionContainer}>
+          Folgende Heap Chunks können visualisiert werden:<br/><br/>
           malloc_block_stack(s)<br/>
           stack_head(s, h)<br/>
           node_next(n, h)<br/>
           malloc_block_node(n)<br/>
           node_value(n, 10)<br/>
-        </span>
+        </div>
       {/* Provider wraps the components that are to be supplied with the data object */}
       <DataContext.Provider value={[values, setValues]}>
         <Input />
