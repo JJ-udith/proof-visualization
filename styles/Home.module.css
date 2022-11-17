@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   background: white;
-  color: white
+  color: white;
 }
 
 .container {
@@ -87,6 +87,6 @@
   background-color: #7F839C;
 }
 
-.descriptionContainer {
+.assistanceContainer {
   padding-bottom: 20px;
 }
