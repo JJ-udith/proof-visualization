@@ -188,11 +188,13 @@ const GraphCalculation = () => {
   //pull out entered name of heap chunk by the user to later determine label in graph and call create-Function to satisfy the different types of heap chunks
   const checkTypeOfHeapChunk = (value) => {
     if (value.textInput.startsWith("malloc_block_stack")) {
-      const name = value.textInput.match(/\((.*)\)/).pop();
+      const nameWithGaps = value.textInput.match(/\((.*)\)/).pop();
+      const name = nameWithGaps.replaceAll(' ','');
       const color = value.radioButtonColor;
       createMallocBlockStackGraphData(name, color);
     } else if (value.textInput.startsWith("malloc_block_node")) {
-      const name = value.textInput.match(/\((.*)\)/).pop();
+      const nameWithGaps = value.textInput.match(/\((.*)\)/).pop();
+      const name = nameWithGaps.replaceAll(' ', '');
       const color = value.radioButtonColor;
       createMallocBlockNodeGraphData(name, color);
     } else if (value.textInput.startsWith("node_value")) {
@@ -200,24 +202,30 @@ const GraphCalculation = () => {
         .match(/\(([^)]+)\)/)[1]
         .split(",");
       console.log(matches[0]);
-      const nodename = matches[0];
-      const valuename = matches[1];
+      const nodenameWithGaps = matches[0];
+      const nodename = nodenameWithGaps.replaceAll(' ','');
+      const valuenameWithGaps = matches[1];
+      const valuename = valuenameWithGaps.replaceAll(' ','');
       const color = value.radioButtonColor;
       createNodeValue(nodename, valuename, color);
     } else if (value.textInput.startsWith("node_next")) {
       const matches = value.textInput
         .match(/\(([^)]+)\)/)[1]
         .split(",");
-      const source = matches[0];
-      const target = matches[1];
+      const sourceWithGaps = matches[0];
+      const source = sourceWithGaps.replaceAll(' ','');
+      const targetWithGaps = matches[1];
+      const target = targetWithGaps.replaceAll(' ','');
       const color = value.radioButtonColor;
       createNodeNextEdge(source, target, color);
     } else if (value.textInput.startsWith("stack_head")) {
       const matches = value.textInput
         .match(/\(([^)]+)\)/)[1]
         .split(",");
-      const source = matches[0];
-      const target = matches[1];
+      const sourceWithGaps = matches[0];
+      const source = sourceWithGaps.replaceAll(' ','');
+      const targetWithGaps = matches[1];
+      const target = targetWithGaps.replaceAll(' ','');
       const color = value.radioButtonColor;
       createStackHeadEdge(source, target, color);
     } 
