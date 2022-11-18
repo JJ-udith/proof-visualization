@@ -1,13 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import CytoscapeComponent from "react-cytoscapejs";
-import { DataContext } from "../../pages";
-import cytoscape from "cytoscape";
+import Cytoscape from "cytoscape";
 import dagre from "cytoscape-dagre";
-import styles from './graph.module.scss'
+import styles from "./graph.module.scss";
 
-cytoscape.use(dagre);
+Cytoscape.use(dagre);
 
 const Graph = ({ elements }) => {
+  let myCyRef;
+
+  useEffect(() => {
+    myCyRef.layout({ name: "dagre" }).run();
+  }, [elements]);
+
+  const layout = { name: "dagre" };
+
   const style = [
     {
       selector: "node",
@@ -40,19 +47,19 @@ const Graph = ({ elements }) => {
     },
   ];
 
-  const layout = { name: "dagre" };
-
   return (
     <div className={styles.graphContainer}>
       <div className={styles.cytoScapeFrame}>
-      <CytoscapeComponent
-        elements={elements}
-        stylesheet={style}
-        style={{ width: "600px", height: "600px" }}
-        layout={layout}
-      />
+        <CytoscapeComponent
+          elements={elements}
+          stylesheet={style}
+          style={{ width: "600px", height: "600px" }}
+          layout={layout}
+          cy={(cy) => {
+            myCyRef = cy;
+          }}
+        />
       </div>
-      
     </div>
   );
 };
