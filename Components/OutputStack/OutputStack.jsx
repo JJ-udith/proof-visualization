@@ -1,4 +1,4 @@
-import styles from "./output.module.scss"
+import styles from "./outputStack.module.scss"
 import React, {useContext} from 'react'
 import { DataContext } from "../../pages/stack";
 

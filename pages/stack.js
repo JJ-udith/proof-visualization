@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react";
-import Input from "../Components/InputComponent/Input";
+import Input from "../Components/InputStack/InputStack";
 import GraphCalculation from "../Components/GraphCalculation/GraphCalculation";
 import styles from "../styles/Home.module.css";
-import Output from "../Components/Output/Output";
-import Assistance from "../Components/Assistance/Assistance";
+import Output from "../Components/OutputStack/OutputStack";
+import Assistance from "../Components/AssistanceStack/Assistance";
 
 export const DataContext = createContext();
 

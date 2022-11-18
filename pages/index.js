@@ -18,7 +18,7 @@ export default function Home({}) {
           <h1 className={styles.title}>Proof Visualization</h1>
         </div>
         <div className={styles.linkContainer}>
-          <Link href="/successor">
+          <Link href="/successorV2">
             <div className={styles.successorContainer}>
               <a>Successor</a>
             </div>

@@ -1,8 +1,9 @@
-import { color } from "d3";
 import React, { useState, useContext } from "react";
 import { DataContext } from "../../pages/stack";
+import styles from "./inputStack.module.scss";
 
-import styles from "./input.module.scss";
+
+
 const Input = () => {
   const [values, setValues] = useContext(DataContext);
   let [textInput, setTextInput] = useState("");
@@ -28,7 +29,6 @@ const Input = () => {
     const nodeNextExp = new RegExp(/^node_next\(.+,.+\)$/, "gi");
     const stHeadExp = new RegExp(/^stack_head\(.+,.+\)$/, "gi");
 
-    
       if (malStExp.test(text)) {
         return true;
       } else if (malNoExp.test(text)) {
