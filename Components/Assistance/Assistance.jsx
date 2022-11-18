@@ -16,6 +16,7 @@ const Assistance = () => {
         <br />
         to display the visualization for this set of Heap Chunks.
         <br />
+        To clean up the Heap Chunks, reload the browser.
         
       </details>
       <br />

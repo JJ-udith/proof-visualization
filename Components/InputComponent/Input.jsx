@@ -7,17 +7,7 @@ const Input = () => {
   const [values, setValues] = useContext(DataContext);
   let [textInput, setTextInput] = useState("");
   let [colorInput, setColorInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [valid, setValid] = useState(false);
-  
-  //check if input matches certain pattern
-  const malStExp = new RegExp(/^malloc_block_stack\(.+\)$/, 'gi');
-  const malNoExp = new RegExp(/^malloc_block_node\(.+\)$/, 'gi');
-  const nodeValExp = new RegExp(/^node_value\(.+,.+\)$/, 'gi');
-  const nodeNextExp = new RegExp(/^node_next\(.+,.+\)$/, 'gi');
-  const stHeadExp = new RegExp(/^stack_head\(.+,.+\)$/, 'gi');
-   
-  
+
   //change state of text input field while typing (letter by letter)
   const handleTextInputChange = (event) => {
     event.persist();
@@ -29,46 +19,60 @@ const Input = () => {
     setColorInput(event.target.value);
   };
 
-  //check TextInput for spelling errors or wrong syntax to give feedback to user
+  //check TextInput for spelling errors/wrong syntax or duplicates to give feedback to user
   const checkTextInput = (text) => {
-    if (malStExp.test(text)) {
-      return true;
-    }else if (malNoExp.test(text)) {
-      return true;
-    }else if (nodeValExp.test(text)){
-      return true;
-    }else if(nodeNextExp.test(text)){
-      return true;
-    }else if(stHeadExp.test(text)){
-      return true;
-    }else{
-      alert('Please check the spelling of your entry.');
-      return false;
+    //determine the exact wording of the heap chunks and store each in RegExp Pattern
+    const malStExp = new RegExp(/^malloc_block_stack\(.+\)$/, "gi");
+    const malNoExp = new RegExp(/^malloc_block_node\(.+\)$/, "gi");
+    const nodeValExp = new RegExp(/^node_value\(.+,.+\)$/, "gi");
+    const nodeNextExp = new RegExp(/^node_next\(.+,.+\)$/, "gi");
+    const stHeadExp = new RegExp(/^stack_head\(.+,.+\)$/, "gi");
+
+    
+      if (malStExp.test(text)) {
+        return true;
+      } else if (malNoExp.test(text)) {
+        return true;
+      } else if (nodeValExp.test(text)) {
+        return true;
+      } else if (nodeNextExp.test(text)) {
+        return true;
+      } else if (stHeadExp.test(text)) {
+        return true;
+      } else {
+        alert("Please check the spelling of your entry.");
+        return false;
+      }
     }
-  }
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault(); //will stop the refreshing of the page
-    
-    //if color input is missing
-    if(!colorInput){
-      alert('The indication of the color is missing.');
+
+    //Clear string from all spaces to make them comparable
+    textInput = textInput.replaceAll(" ", "");
+
+
+    if (!colorInput) {
+      alert("The indication of the color is missing.");
     }
 
-    //if text input is missing
-    if(!textInput){
-      alert('Please enter a heap chunk.')
+   
+    if (!textInput) {
+      alert("Please enter a heap chunk.");
     }
 
-    // if color and textinput are present, check for errors
+    // if color and textinput are present, check for errors and duplicates
     if (textInput && colorInput) {
-      setSubmitted(true);
-
-      // if textinput expression passes the tests, set state to valid and setValues(values), so that GraphCalculation gets the data
-      if(checkTextInput(textInput)){
-        setValid(true);
-        //adding up the new values to values State in ReactContext, data than available for GraphCalculation component
-        setValues((values) => [...values, { textInput: textInput, radioButtonColor: colorInput }]);
+ 
+      if (checkTextInput(textInput)) {
+        
+        if(values.map(value => value.textInput).includes(textInput)){
+          alert("This Heap Chunk is already included in the set. It is not possible to add the same Heap Chunk twice.");
+        }else{
+          //adding up the new values to values State in ReactContext, data than available for GraphCalculation component
+          setValues((values) => [...values, { textInput: textInput, radioButtonColor: colorInput }]);
+        }
       }
     }
   };
@@ -87,7 +91,6 @@ const Input = () => {
         />
 
         <div className={styles.radioButtons}>
-
           <input
             className={styles.accentBlack}
             id="black"
@@ -126,14 +129,9 @@ const Input = () => {
         </div>
 
         <button className={styles.rowButton} type="submit">
-          SUBMIT ROW +{" "} 
+          SUBMIT ROW +{" "}
         </button>
-        
       </form>
-
-      {/* {submitted && !colorInput && <div>Please chose a color.</div>}
-      {submitted && !textInput && <div id="heap-chunk-error">Please enter a Heap Chunk.</div>}
-      {!submitted &&  <div>No valid heap chunk. Please check the Syntax.</div> } */}
     </div>
   );
 };

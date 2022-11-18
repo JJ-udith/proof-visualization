@@ -11,8 +11,8 @@ const Graph = () => {
   //data object, provided by React context for the other components to consume during runtime
   const [values, setValues] = useState([
     {
-      textInput: "Heap Chunks allready entered",
-      radioButtonColor: "Color of the textline",
+      textInput: "Default Heap Chunk",
+      radioButtonColor: "Default Color",
     },
   ]);
 
