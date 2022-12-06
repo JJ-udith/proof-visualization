@@ -23,7 +23,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-or got to www.deployedAdressOfProject.com
+or got to https://proof-visualization.vercel.app/ to see the deployed version of the app.
 
 ### Successor Algorithm Visualization
 
@@ -37,4 +37,4 @@ On the Successor page it is now possible to display the assumptions collected in
 To reproduce the proof and apply the visualization, proceed as follows:
 Go to [Verifast](https://github.com/verifast/verifast), download and install Verifast according to your operation system.
 Open the stack.s file from [here](./algorithms/stack.c) in Verifast and start the verification.
-As you step through the the verification in the Steps Part of the window, you can see the Heap Chunks changing in the Heap Chunks part of the Window. You can then transfer the Heap Chunks into the tool you find on the Stack page of the App, to visualize the different Pre- and Postconditions as well as the State of Heap Chunks inbetween.
+As you step through the verification in the Steps Part of the window, you can see the Heap Chunks changing in the Heap Chunks part of the Window. You can then transfer the Heap Chunks into the tool you find on the Stack page of the App, to visualize the different Pre- and Postconditions as well as the State of Heap Chunks inbetween.
