@@ -172,7 +172,7 @@ const GraphCalculation = () => {
 
     //datapoints for the head pointer edge 
     const headPointer = dataFactoryEdges();
-    headPointer.data.id = `${source}_head:pointer`;
+    headPointer.data.id = `${target}_head:pointer`;
     headPointer.data.name = "head";
     headPointer.data.source = `${source}:head_ellipse`;
     headPointer.data.target = `${target}:node`;
