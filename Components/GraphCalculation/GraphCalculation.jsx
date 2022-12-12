@@ -101,7 +101,6 @@ const GraphCalculation = () => {
     node.data.id = `${nodename}:node`;
     node.data.name = `${nodename}:node`;
     node.data.shape = "rectangle";
-    node.data.bordercolor = color;
 
     //datapoints for inner rectangle
     const nodevalue = dataFactoryNodes();
@@ -152,7 +151,7 @@ const GraphCalculation = () => {
     sourceHeadEllipse.data.id = `${source}:head_ellipse`;
     sourceHeadEllipse.data.name = "head";
     sourceHeadEllipse.data.shape = "ellipse";
-    sourceHeadEllipse.data.bordercolor = color;
+    //sourceHeadEllipse.data.bordercolor = color;
     sourceHeadEllipse.data.parent = `s:stack`;
 
     //datapoints for the source node of head pointer
@@ -160,7 +159,7 @@ const GraphCalculation = () => {
     sourceNode.data.id = `${source}:stack`;
     sourceNode.data.name = `${source}:stack`;
     sourceNode.data.shape = 'rectangle';
-    sourceNode.data.bordercolor = color;
+    //sourceNode.data.bordercolor = color;
     sourceNode.data.parent = `${source}:malSt`
 
     //datapoints for the target node where head pointer points to
@@ -168,7 +167,7 @@ const GraphCalculation = () => {
     targetNode.data.id = `${target}:node`;
     targetNode.data.name = `${target}:node`;
     targetNode.data.shape = "rectangle";
-    targetNode.data.bordercolor = color;
+    //targetNode.data.bordercolor = color;
 
     //datapoints for the head pointer edge 
     const headPointer = dataFactoryEdges();
